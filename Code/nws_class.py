@@ -18,7 +18,6 @@ import geocode_geopy
 from datetime import datetime
 from time import sleep
 # Windows: pip install rich
-# Linux: pip3 install rich
 # Import Console for console printing
 from rich.console import Console
 # Import Panel for title displays
@@ -40,8 +39,7 @@ class WeatherClass:
         ))
         self._decorator_width = 75
 
-        # User agent headers dictionary, like an API key
-        # Required by NWS
+        # User agent headers dictionary, like an API key, Required by NWS
         self.headers = {
             "User-Agent": "(nws_app, williamloring@hotmail.com)"
         }
@@ -49,7 +47,7 @@ class WeatherClass:
 #--------------------------------- GET LOCATION -------------------------------------#
     def get_location(self):
         """
-            Get lat, lng, and address to retrieve weather for
+            Get lat, lng, and address to retrieve gridpoint for weather
         """
         try:
             # Get location input from user
@@ -252,7 +250,7 @@ class WeatherClass:
             Display active weather alerts
         """
         console.print(Panel.fit(
-            f"National Weather Service Active Weather Alerts\n{self._address}",
+            f"National Weather Service Active Weather Alerts\n{self._address}\n{self.station_name}",
             style="bold blue"
         ))
 
@@ -296,7 +294,7 @@ class WeatherClass:
             Display weather alerts
         """
         console.print(Panel.fit(
-            f"National Weather Service Weather Alerts\n{self._address}",
+            f"National Weather Service Weather Alerts\n{self._address}\n{self.station_name}",
             style="bold blue"
         ))
 
@@ -433,7 +431,7 @@ class WeatherClass:
             Display latest weather observation from closest station in Rich table format
         """
         console.print(Panel.fit(
-            f"National Weather Service Latest Observations\n{self._address}",
+            f"National Weather Service Latest Observations\n{self._address}\n{self.station_name}",
             style="bold blue"
         ))
         table = Table()
@@ -461,7 +459,7 @@ class WeatherClass:
             Display 12 hour forecast
         """
         console.print(Panel.fit(
-            f"National Weather Service 12 Hour Forecast\n{self._address}",
+            f"National Weather Service 12 Hour Forecast\n{self._address}\n{self.station_name}",
             style="bold blue"
         ))
 
@@ -492,7 +490,7 @@ class WeatherClass:
             Display 7 day forecast
         """
         console.print(Panel.fit(
-            f"National Weather Service 7 Day Forecast\n{self._address}"),
+            f"National Weather Service 7 Day Forecast\n{self._address}\n{self.station_name}"),
             style="bold blue"
         )
 
@@ -523,7 +521,7 @@ class WeatherClass:
     def display_7_day_detailed_forecast(self):
 
         console.print(Panel.fit(
-            f"National Weather Service 7 Day Detailed Forecast\n{self._address}",
+            f"National Weather Service 7 Day Detailed Forecast\n{self._address}\n{self.station_name}",
             style="bold blue"
         ))
 

@@ -84,33 +84,3 @@ def degrees_to_cardinal(degrees):
 
     # Return the cardinal direction based on the tuple index
     return cardinal_directions[cardinal_index]
-
-
-#----------------------- PROGRAM BANNER -------------------------------------#
-WEATHER_BANNER = """
- _    _            _   _                
-| |  | |          | | | |               
-| |  | | ___  __ _| |_| |__   ___ _ __  
-| |/\| |/ _ \/ _` | __| '_ \ / _ \ '__| 
-\  /\  /  __/ (_| | |_| | | |  __/ | 
- \/  \/ \___|\__,_|\__|_| |_|\___|_| """
-
-
-#----------------------- ASCII DECORATED TITLE -----------------------------#
-def title(statement):
-    '''
-        Takes in a string argument
-        returns a string with ascii decorations
-    '''
-    # Get the length of the statement
-    text_length = len(statement)
-
-    # Create the title string
-    # Initialize the result string variable
-    result = ""
-    result = result + "+--" + "-" * text_length + "--+\n"
-    result = result + "|  " + statement + "  |\n"
-    result = result + "+--" + "-" * text_length + "--+"
-
-    # Return the contatenated title string
-    return result
