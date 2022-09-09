@@ -15,9 +15,8 @@ from rich.console import Console
 # Initialize rich.console
 console = Console(highlight=False)
 
+
 #-------------------------------- MENU -------------------------------------#
-
-
 def menu():
     """
         Print menu for user, return menu choice

@@ -84,17 +84,53 @@ class WeatherClass:
             response = requests.get(points_url, headers=self.headers)
 
             # Get gridpoints dictionary, locations for weather station coverage
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 print(
                     " [+] The connection to the National Weather Service was successful.")
                 # Get the gridpoints dictionary for weather station locations
                 self.grid_points_dict = response.json()
                 print(
                     f" [+] Retrieved NWS Gridpoints for Weather Station Location")
-
             else:
                 print("[-] Did not get NWS Gridpoints")
 
+        except Exception as e:
+            print("Something went wrong. Let's try again")
+            print(e)
+            self.get_location()
+            # raise exception is used to troubleshoot
+            # It raises the exception that was handled
+            # raise exception
+        self.get_station_name()
+
+#--------------------------------- GET STATION NAME ---------------------------------------------#
+    def get_station_name(self):
+        """
+            Get station name
+        """
+        try:
+            # Get closest observation station URL from grid_points dictionary
+            stations_url = self.grid_points_dict.get(
+                "properties").get("observationStations")
+            response = requests.get(stations_url, headers=self.headers)
+
+            # Get observation station ids
+            if (response.status_code == 200):
+                # Get station dictionary
+                self.station_dict = response.json()
+
+                # Get first station id in list
+                self.station_id = self.station_dict.get("features")[0].get(
+                    "properties").get("stationIdentifier")
+
+                # Get nearest station name
+                self.station_name = self.station_dict.get(
+                    "features")[0].get("properties").get("name")
+
+            else:
+                print(
+                    f"[-] Did not get station_id or station_name \
+                        - Response: {response.status_code}")
         except Exception as e:
             print("Something went wrong. Let's try again")
             print(e)
@@ -109,30 +145,13 @@ class WeatherClass:
             Get latest weather observation from closest station
         """
         try:
-            # Get closest observation station URL from grid_points dictionary
-            stations_url = self.grid_points_dict.get(
-                "properties").get("observationStations")
-            response = requests.get(stations_url, headers=self.headers)
-
-            # Get observation station ids
-            if(response.status_code == 200):
-                # Get station dictionary
-                self.station_dict = response.json()
-
-                # Get first station id in list
-                self.station_id = self.station_dict.get("features")[0].get(
-                    "properties").get("stationIdentifier")
-
-                # Create URL from station id
-                observations_url = weather_utils.NWS_ENDPOINT + \
-                    "stations/" + self.station_id + "/observations/latest"
-                response = requests.get(observations_url, headers=self.headers)
-            else:
-                print(
-                    f"[-] Did not get Station ID - - Response: {response.status_code}")
+            # Create URL from station id
+            observations_url = weather_utils.NWS_ENDPOINT + \
+                "stations/" + self.station_id + "/observations/latest"
+            response = requests.get(observations_url, headers=self.headers)
 
             # Get latest observation from station
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 # Get latest observation dictionary
                 self.weather_dict = response.json()
             else:
@@ -157,7 +176,7 @@ class WeatherClass:
                 "properties").get("forecastHourly")
             response = requests.get(forecast_hourly_url, headers=self.headers)
 
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 # Get forecast dictionary
                 forecast_hourly_dict = response.json()
                 self.forecast_hourly_list = forecast_hourly_dict.get(
@@ -185,7 +204,7 @@ class WeatherClass:
 
             response = requests.get(forecast_url, headers=self.headers)
 
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 # Get forecast dictionary
                 forecast_dict = response.json()
                 self.forecast_list = forecast_dict.get(
@@ -209,7 +228,7 @@ class WeatherClass:
         try:
             active_alerts_url = f"https://api.weather.gov/alerts/active?point={self.lat},{self.lng}"
             response = requests.get(active_alerts_url, headers=self.headers)
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 self.active_weather_alert_dict = response.json()
             else:
                 print(
@@ -231,7 +250,7 @@ class WeatherClass:
         try:
             alerts_url = f"https://api.weather.gov/alerts?point={self.lat},{self.lng}"
             response = requests.get(alerts_url, headers=self.headers)
-            if(response.status_code == 200):
+            if (response.status_code == 200):
                 self.weather_alert_dict = response.json()
             else:
                 print(
@@ -337,9 +356,9 @@ class WeatherClass:
         """
             Get latest observation from the closest NWS station
         """
-        # Get nearest stationid
-        self.station_name = self.station_dict.get(
-            "features")[0].get("properties").get("name")
+        # Get nearest station name
+        # self.station_name = self.station_dict.get(
+        #     "features")[0].get("properties").get("name")
 
         # Get latest weather observation from dictionary
         # Shorten up weather observations dictionary code
