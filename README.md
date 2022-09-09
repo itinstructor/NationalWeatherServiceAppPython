@@ -14,6 +14,7 @@
     - Linux: pip3 install nuitka
 
 ### Changes
+- 09/05/2022: Refactor to divide up methods to be more specific to better handle and report errors. Minor fixes.
 - 07/17/2022: Instead of getting all the weather data at once from successive API calls, API call's are only made when needed, added more exception handling
 - 11/28/2021: Make nws_class less console specific to be able to be used in any other programs
 - 09/17/2021: Initial commit
