@@ -2,11 +2,9 @@
     Name: weather_utils.py
     Author: William A Loring
     Created: 06/20/2021
-    Purpose: Store OpenWeatherMap API key and other items
-    for easy import into OpenWeatherMap based apps
+    Purpose: NWS endpoint and general weather utilities
 """
 import datetime
-from time import sleep
 import math
 
 
@@ -70,8 +68,10 @@ def degrees_to_cardinal(degrees):
     """ Convert degrees to cardinal directions """
 
     # Tuple of cardinal directions clockwise for 360 degrees
-    cardinal_directions = ("N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-                           "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW")
+    cardinal_directions = (
+        "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+        "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
+    )
 
     # Divide 360 degrees into 16 segments 0-15
     # 22.5 degrees per segment
