@@ -24,8 +24,7 @@ def main():
 
 
 def geocode(city, state, country):
-    """
-        Get lat, lng, and address using geopy
+    """Get lat, lng, and address using geopy
         from city, state, and country
     """
     try:

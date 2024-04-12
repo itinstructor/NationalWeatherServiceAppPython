@@ -14,16 +14,15 @@ from datetime import datetime
 class WeatherClass:
     def __init__(self):
         # Replace with your email address
-        EMAIL_ADDRESS = "your email address"
+        EMAIL_ADDRESS = "williamloring@hotmail.com"
         # User agent headers dictionary, like an API key, Required by NWS
         self.headers = {
             "User-Agent": f"(nws_app, {EMAIL_ADDRESS})"
         }
 
-#--------------------- GET GRIDPOINTS FROM LAT LON-----------------------------#
+# ----------------- GET GRIDPOINTS FROM LAT LON ----------------------------#
     def get_gridpoints(self, lat, lng):
-        """
-            Gridpoints are how the NWS locates the weather
+        """Gridpoints are how the NWS locates the weather
             lat, lng are translated into gridpoints
             gridpoints allow us to get the weather for the current location
         """
@@ -38,7 +37,7 @@ class WeatherClass:
             # Get gridpoints dictionary, locations for weather station coverage
             if (response.status_code == 200):
                 print(
-                    " [+] Connection to the National Weather Service was successful.")
+                    " [+] Connection to National Weather Service was successful.")
                 # Get the gridpoints dictionary for weather station locations
                 self.grid_points_dict = response.json()
                 print(
@@ -54,11 +53,9 @@ class WeatherClass:
             # raise exception
         self.get_station_name()
 
-#--------------------------- GET STATION NAME ---------------------------------#
+# ----------------------- GET STATION NAME ---------------------------------#
     def get_station_name(self):
-        """
-            Get station name
-        """
+        """Get station name"""
         try:
             # Get closest observation station URL from grid_points dictionary
             stations_url = self.grid_points_dict.get(
@@ -88,11 +85,9 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
-#------------------ GET LATEST WEATHER OBSERVATION ----------------------------#
+# -------------- GET LATEST WEATHER OBSERVATION ----------------------------#
     def get_latest_weather_observation(self):
-        """
-            Get latest weather observation from closest station
-        """
+        """Get latest weather observation from closest station"""
         try:
             # Create URL from station id
             observations_url = weather_utils.NWS_ENDPOINT + \
@@ -114,16 +109,14 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
- #----------------------- GET HOURLY FORECAST ---------------------------------#
+ # ------------------- GET HOURLY FORECAST ---------------------------------#
     def get_hourly_forecast(self):
-        """
-           Get hourly forecast url from grid_points dictionary
-        """
+        """Get hourly forecast url from grid_points dictionary"""
         try:
             forecast_hourly_url = self.grid_points_dict.get(
                 "properties").get("forecastHourly")
             response = requests.get(
-                forecast_hourly_url, headers=self.headers, timeout=3)
+                forecast_hourly_url, headers=self.headers)
 
             if (response.status_code == 200):
                 # Get forecast dictionary
@@ -141,11 +134,9 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
-#----------------------- GET 7 DAY FORECAST -----------------------------------#
+# ------------------- GET 7 DAY FORECAST -----------------------------------#
     def get_7_day_forecast(self):
-        """
-            Get 7 Day forecast from grid_points dictionary
-        """
+        """Get 7 Day forecast from grid_points dictionary"""
         try:
             # Get the forecast url from the gridpoints dictionary
             forecast_url = self.grid_points_dict.get(
@@ -169,13 +160,11 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
-#----------------------- GET ACTIVE WEATHER ALERTS ----------------------------#
+# ------------------- GET ACTIVE WEATHER ALERTS ----------------------------#
     def get_active_weather_alerts(self, lat, lng):
-        """
-            Get active weather alerts for the area
-        """
+        """Get active weather alerts for the area"""
+        active_alerts_url = f"https://api.weather.gov/alerts/active?point={lat},{lng}"
         try:
-            active_alerts_url = f"https://api.weather.gov/alerts/active?point={lat},{lng}"
             response = requests.get(active_alerts_url, headers=self.headers)
             if (response.status_code == 200):
                 self.active_weather_alert_dict = response.json()
@@ -191,13 +180,11 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
-#------------------------------ GET WEATHER ALERTS ----------------------------#
+# -------------------------- GET WEATHER ALERTS ----------------------------#
     def get_weather_alerts(self, lat, lng):
-        """
-            Get weather alerts for the area
-        """
+        """Get weather alerts for the area"""
+        alerts_url = f"https://api.weather.gov/alerts?point={lat},{lng}"
         try:
-            alerts_url = f"https://api.weather.gov/alerts?point={lat},{lng}"
             response = requests.get(alerts_url, headers=self.headers)
             if (response.status_code == 200):
                 self.weather_alert_dict = response.json()
@@ -212,11 +199,9 @@ class WeatherClass:
             # It raises the exception that was handled
             # raise exception
 
-#------------------ PROCESS LATEST WEATHER OBSERVATION ------------------------#
+# -------------- PROCESS LATEST WEATHER OBSERVATION ------------------------#
     def process_latest_weather_observation(self):
-        """
-            Get latest observation from the closest NWS station
-        """
+        """Get latest observation from the closest NWS station"""
         # Get nearest station name
         # self.station_name = self.station_dict.get(
         #     "features")[0].get("properties").get("name")
@@ -274,7 +259,8 @@ class WeatherClass:
         pressure = weather_obs.get("barometricPressure").get("value")
         if not (pressure is None):
             # Convert pascals to inches of mercury inHg
-            self.pressure = round(pressure / 3386, 2)
+            pressure = pressure / 3386.3886666667
+            self.pressure = f"{pressure:.2f}"
         else:
             self.pressure = "NA"
 
