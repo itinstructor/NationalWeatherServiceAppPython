@@ -14,6 +14,8 @@
   - Windows: pip install nuitka
   - Linux: pip3 install nuitka
 
+![NWS Screenshot](./img/latest_weather_information.png)
+
 ### Changes
 
 - 09/24/2022: Refactor to MVC. nws_cli.py is the view, nws_class.py is the controller.
