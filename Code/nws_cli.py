@@ -36,7 +36,7 @@ class NWSConsole():
         # Create weather object to access methods
         self.weather = nws_class.WeatherClass()
 
-# ----------------------- GET LOCATION -------------------------------------#
+# ----------------------- GET LOCATION ------------------------------------#
     def get_location(self):
         """Get lat, lng, and address to retrieve gridpoint for weather"""
         try:
@@ -53,9 +53,6 @@ class NWSConsole():
             print("Something went wrong. Let's try again")
             print(e)
             self.get_location()
-            # raise exception is used to troubleshoot
-            # It raises the exception that was handled
-            # raise exception
 
         self.weather.get_gridpoints(self.lat, self.lng)
 
@@ -83,15 +80,16 @@ class NWSConsole():
             f"National Weather Service - Latest Observations\n{self.address}\n{self.weather.station_name}",
             style="bold blue"
         ))
-        table = Table()
+        table = Table(show_lines=True)
         table.add_column("Desc", justify="right")
         table.add_column("Value")
         table.add_column("Desc", justify="right")
         table.add_column("Value")
-        table.add_row(f"{self.weather.description}", "")
+        table.add_row(f"{self.weather.description}")
         table.add_row(
-            "Temperature ",
-            f"{self.weather.temperature}°F", "Pressure", f"{self.weather.pressure} inHg")
+            "Temperature ", f"{self.weather.temperature}°F",
+            "Pressure", f"{self.weather.pressure} inHg"
+        )
         table.add_row("Dew Point", f"{self.weather.dewpoint}°F",
                       "Visibility", f"{self.weather.visibility} mi")
         table.add_row("Humidity", f"{self.weather.humidity}%",
@@ -116,6 +114,7 @@ class NWSConsole():
         try:
             # Slice 12 hours out of the hourly forecast list
             hourly_slice = self.weather.forecast_hourly_list[:12]
+
             # Iterate through each item in the forecast list
             for forecast_item in hourly_slice:
                 start_time = forecast_item.get("startTime")
@@ -126,13 +125,12 @@ class NWSConsole():
                 time = datetime.fromisoformat(start_time)
                 time = time.strftime('%I:%M %p')
                 print(
-                    f" {time:>8}: {temperature:>5.1f}°F | {wind_speed:>8} | {wind_direction:>5} | {short_forecast}")
+                    f" {time:>8}: {temperature:>5.1f}°F | {wind_speed:>8} | {wind_direction:>5} | {short_forecast}"
+                )
+
         except Exception as e:
             print("Something went wrong. Let's try again")
             print(e)
-            # raise exception is used to troubleshoot
-            # It raises the exception that was handled
-            # raise exception
 
 # ---------------------- DISPLAY 7 DAY FORECAST ----------------------------#
     def display_7_day_forecast(self):
@@ -156,14 +154,12 @@ class NWSConsole():
                 # time = time.strftime('%m-%d-%Y')
                 # print(f"{name}: {detailed_forecast}")
                 print(
-                    f" {name:<15} {temperature:>4}°F | {wind_speed:12} {wind_direction:5} | {short_forecast}")
+                    f" {name:<15} {temperature:>4}°F | {wind_speed:12} {wind_direction:5} | {short_forecast}"
+                )
                 # print(f'{detailed_forecast}')
         except Exception as e:
             print("Something went wrong. Let's try again")
             print(e)
-            # raise exception is used to troubleshoot
-            # It raises the exception that was handled
-            # raise exception
 
 # ----------------- DISPLAY 7 DAY DETAILED FORECAST ------------------------#
     def display_7_day_detailed_forecast(self):
