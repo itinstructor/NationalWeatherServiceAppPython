@@ -1,5 +1,7 @@
 # National Weather Service CLI Application in Python
 
+![NWS Screenshot](./img/latest_weather_information.png)
+
 ### Overview
 
 - Python3 CLI program using requests, [National Weather Service API](https://www.weather.gov/documentation/services-web-api), and Nominatim from [geopy](https://pypi.org/project/geopy/).
@@ -13,8 +15,6 @@
 - A batch file is included for using [nuitka](https://pypi.org/project/Nuitka/) to build a Python program to a Windows exe (nuitka_console.bat.)
   - Windows: pip install nuitka
   - Linux: pip3 install nuitka
-
-![NWS Screenshot](./img/latest_weather_information.png)
 
 ### Changes
 
