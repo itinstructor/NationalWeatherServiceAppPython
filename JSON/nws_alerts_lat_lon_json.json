@@ -1,0 +1,439 @@
+Scottsbluf
+All Alerts
+https://api.weather.gov/alerts?point=41.8666,-103.6672
+Active Alerts
+https://api.weather.gov/alerts/active?point=41.8666,-103.6672
+
+Pleasant Grove
+All Alerts
+https://api.weather.gov/alerts?point=40.3641,-111.7385
+Active Alerts
+https://api.weather.gov/alerts/active?point=40.3641,-111.7385
+
+
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dd95854ff0a5ff755d8b8f3a370f43bf5d2dd0ec.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dd95854ff0a5ff755d8b8f3a370f43bf5d2dd0ec.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.dd95854ff0a5ff755d8b8f3a370f43bf5d2dd0ec.001.1",
+                "areaDesc": "Banner, NE; Box Butte, NE; Cheyenne, NE; Kimball, NE; Morrill, NE; Scotts Bluff, NE",
+                "geocode": {
+                    "SAME": [
+                        "031007",
+                        "031013",
+                        "031033",
+                        "031105",
+                        "031123",
+                        "031157"
+                    ],
+                    "UGC": [
+                        "NEC007",
+                        "NEC013",
+                        "NEC033",
+                        "NEC105",
+                        "NEC123",
+                        "NEC157"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC007",
+                    "https://api.weather.gov/zones/county/NEC013",
+                    "https://api.weather.gov/zones/county/NEC033",
+                    "https://api.weather.gov/zones/county/NEC105",
+                    "https://api.weather.gov/zones/county/NEC123",
+                    "https://api.weather.gov/zones/county/NEC157"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.38cd1395f57ac44a6e526ebfbd525be176fe5414.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.38cd1395f57ac44a6e526ebfbd525be176fe5414.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-19T13:24:00-06:00"
+                    }
+                ],
+                "sent": "2021-08-19T18:57:00-06:00",
+                "effective": "2021-08-19T18:57:00-06:00",
+                "onset": "2021-08-19T18:57:00-06:00",
+                "expires": "2021-08-19T19:12:55-06:00",
+                "ends": "2021-08-19T20:00:00-06:00",
+                "status": "Actual",
+                "messageType": "Cancel",
+                "category": "Met",
+                "severity": "Minor",
+                "certainty": "Observed",
+                "urgency": "Past",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Cheyenne WY",
+                "headline": "The Severe Thunderstorm Watch has been cancelled.",
+                "description": "The Severe Thunderstorm Watch has been cancelled and is no longer in effect.",
+                "instruction": null,
+                "response": "AllClear",
+                "parameters": {
+                    "PIL": [
+                        "CYSWCNCYS"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CAN.KCYS.SV.A.0449.000000T0000Z-210820T0200Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-20T02:00:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.38cd1395f57ac44a6e526ebfbd525be176fe5414.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.38cd1395f57ac44a6e526ebfbd525be176fe5414.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.38cd1395f57ac44a6e526ebfbd525be176fe5414.001.1",
+                "areaDesc": "Banner, NE; Box Butte, NE; Cheyenne, NE; Kimball, NE; Morrill, NE; Scotts Bluff, NE",
+                "geocode": {
+                    "SAME": [
+                        "031007",
+                        "031013",
+                        "031033",
+                        "031105",
+                        "031123",
+                        "031157"
+                    ],
+                    "UGC": [
+                        "NEC007",
+                        "NEC013",
+                        "NEC033",
+                        "NEC105",
+                        "NEC123",
+                        "NEC157"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC007",
+                    "https://api.weather.gov/zones/county/NEC013",
+                    "https://api.weather.gov/zones/county/NEC033",
+                    "https://api.weather.gov/zones/county/NEC105",
+                    "https://api.weather.gov/zones/county/NEC123",
+                    "https://api.weather.gov/zones/county/NEC157"
+                ],
+                "references": [],
+                "sent": "2021-08-19T13:24:00-06:00",
+                "effective": "2021-08-19T13:24:00-06:00",
+                "onset": "2021-08-19T13:24:00-06:00",
+                "expires": "2021-08-19T20:00:00-06:00",
+                "ends": "2021-08-19T20:00:00-06:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Possible",
+                "urgency": "Future",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Cheyenne WY",
+                "headline": "Severe Thunderstorm Watch issued August 19 at 1:24PM MDT until August 19 at 8:00PM MDT by NWS Cheyenne WY",
+                "description": "THE NATIONAL WEATHER SERVICE HAS ISSUED SEVERE THUNDERSTORM WATCH\n449 IN EFFECT UNTIL 8 PM MDT THIS EVENING FOR THE FOLLOWING AREAS\n\nIN NEBRASKA THIS WATCH INCLUDES 6 COUNTIES\n\nIN PANHANDLE NEBRASKA\n\nBOX BUTTE             CHEYENNE\n\nIN WESTERN NEBRASKA\n\nBANNER                KIMBALL               MORRILL\nSCOTTS BLUFF\n\nTHIS INCLUDES THE CITIES OF ALLIANCE, ANGORA, BAYARD, BRIDGEPORT,\nBROWNSON, GERING, HARRISBURG, HEMINGFORD, KIMBALL, REDINGTON,\nSCOTTSBLUFF, AND SIDNEY.",
+                "instruction": null,
+                "response": "Monitor",
+                "parameters": {
+                    "PIL": [
+                        "CYSWCNCYS"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KCYS.SV.A.0449.210819T1924Z-210820T0200Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-20T02:00:00+00:00"
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.dd95854ff0a5ff755d8b8f3a370f43bf5d2dd0ec.001.1",
+                "replacedAt": "2021-08-19T18:57:00-06:00"
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.22cccb674942fb96eead451a30ed5515138bbb90.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.22cccb674942fb96eead451a30ed5515138bbb90.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.22cccb674942fb96eead451a30ed5515138bbb90.001.1",
+                "areaDesc": "Banner, NE; Cheyenne, NE; Kimball, NE; Morrill, NE; Scotts Bluff, NE",
+                "geocode": {
+                    "SAME": [
+                        "031007",
+                        "031033",
+                        "031105",
+                        "031123",
+                        "031157"
+                    ],
+                    "UGC": [
+                        "NEC007",
+                        "NEC033",
+                        "NEC105",
+                        "NEC123",
+                        "NEC157"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC007",
+                    "https://api.weather.gov/zones/county/NEC033",
+                    "https://api.weather.gov/zones/county/NEC105",
+                    "https://api.weather.gov/zones/county/NEC123",
+                    "https://api.weather.gov/zones/county/NEC157"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-14T15:30:00-06:00"
+                    },
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e8e5c676d7bb00dc233a8f082c62b072d7cbabfc.002.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.e8e5c676d7bb00dc233a8f082c62b072d7cbabfc.002.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-14T20:18:00-06:00"
+                    }
+                ],
+                "sent": "2021-08-14T22:32:00-06:00",
+                "effective": "2021-08-14T22:32:00-06:00",
+                "onset": "2021-08-14T22:32:00-06:00",
+                "expires": "2021-08-14T22:47:45-06:00",
+                "ends": "2021-08-14T23:00:00-06:00",
+                "status": "Actual",
+                "messageType": "Cancel",
+                "category": "Met",
+                "severity": "Minor",
+                "certainty": "Observed",
+                "urgency": "Past",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Cheyenne WY",
+                "headline": "The Severe Thunderstorm Watch has been cancelled.",
+                "description": "The Severe Thunderstorm Watch has been cancelled and is no longer in effect.",
+                "instruction": null,
+                "response": "AllClear",
+                "parameters": {
+                    "PIL": [
+                        "CYSWCNCYS"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CAN.KCYS.SV.A.0440.000000T0000Z-210815T0500Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-15T05:00:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e8e5c676d7bb00dc233a8f082c62b072d7cbabfc.002.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.e8e5c676d7bb00dc233a8f082c62b072d7cbabfc.002.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.e8e5c676d7bb00dc233a8f082c62b072d7cbabfc.002.1",
+                "areaDesc": "Banner, NE; Cheyenne, NE; Kimball, NE; Morrill, NE; Scotts Bluff, NE",
+                "geocode": {
+                    "SAME": [
+                        "031007",
+                        "031033",
+                        "031105",
+                        "031123",
+                        "031157"
+                    ],
+                    "UGC": [
+                        "NEC007",
+                        "NEC033",
+                        "NEC105",
+                        "NEC123",
+                        "NEC157"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC007",
+                    "https://api.weather.gov/zones/county/NEC033",
+                    "https://api.weather.gov/zones/county/NEC105",
+                    "https://api.weather.gov/zones/county/NEC123",
+                    "https://api.weather.gov/zones/county/NEC157"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-14T15:30:00-06:00"
+                    }
+                ],
+                "sent": "2021-08-14T20:18:00-06:00",
+                "effective": "2021-08-14T20:18:00-06:00",
+                "onset": "2021-08-14T20:18:00-06:00",
+                "expires": "2021-08-14T23:00:00-06:00",
+                "ends": "2021-08-14T23:00:00-06:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Possible",
+                "urgency": "Future",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Cheyenne WY",
+                "headline": "Severe Thunderstorm Watch issued August 14 at 8:18PM MDT until August 14 at 11:00PM MDT by NWS Cheyenne WY",
+                "description": "SEVERE THUNDERSTORM WATCH 440 REMAINS VALID UNTIL 11 PM MDT THIS\nEVENING FOR THE FOLLOWING AREAS\n\nIN NEBRASKA THIS WATCH INCLUDES 5 COUNTIES\n\nIN PANHANDLE NEBRASKA\n\nCHEYENNE\n\nIN WESTERN NEBRASKA\n\nBANNER                KIMBALL               MORRILL\nSCOTTS BLUFF\n\nTHIS INCLUDES THE CITIES OF ANGORA, BAYARD, BRIDGEPORT, BROWNSON,\nGERING, HARRISBURG, KIMBALL, REDINGTON, SCOTTSBLUFF, AND SIDNEY.",
+                "instruction": null,
+                "response": "Monitor",
+                "parameters": {
+                    "PIL": [
+                        "CYSWCNCYS"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KCYS.SV.A.0440.000000T0000Z-210815T0500Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-15T05:00:00+00:00"
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.22cccb674942fb96eead451a30ed5515138bbb90.001.1",
+                "replacedAt": "2021-08-14T22:32:00-06:00"
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.eb7a17fdcf87638fb580cca733adc780e3a0626c.001.1",
+                "areaDesc": "Banner, NE; Box Butte, NE; Cheyenne, NE; Dawes, NE; Kimball, NE; Morrill, NE; Scotts Bluff, NE; Sioux, NE",
+                "geocode": {
+                    "SAME": [
+                        "031007",
+                        "031013",
+                        "031033",
+                        "031045",
+                        "031105",
+                        "031123",
+                        "031157",
+                        "031165"
+                    ],
+                    "UGC": [
+                        "NEC007",
+                        "NEC013",
+                        "NEC033",
+                        "NEC045",
+                        "NEC105",
+                        "NEC123",
+                        "NEC157",
+                        "NEC165"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC007",
+                    "https://api.weather.gov/zones/county/NEC013",
+                    "https://api.weather.gov/zones/county/NEC033",
+                    "https://api.weather.gov/zones/county/NEC045",
+                    "https://api.weather.gov/zones/county/NEC105",
+                    "https://api.weather.gov/zones/county/NEC123",
+                    "https://api.weather.gov/zones/county/NEC157",
+                    "https://api.weather.gov/zones/county/NEC165"
+                ],
+                "references": [],
+                "sent": "2021-08-14T15:30:00-06:00",
+                "effective": "2021-08-14T15:30:00-06:00",
+                "onset": "2021-08-14T15:30:00-06:00",
+                "expires": "2021-08-14T23:00:00-06:00",
+                "ends": "2021-08-14T23:00:00-06:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Possible",
+                "urgency": "Future",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Cheyenne WY",
+                "headline": "Severe Thunderstorm Watch issued August 14 at 3:30PM MDT until August 14 at 11:00PM MDT by NWS Cheyenne WY",
+                "description": "THE NATIONAL WEATHER SERVICE HAS ISSUED SEVERE THUNDERSTORM WATCH\n440 IN EFFECT UNTIL 11 PM MDT THIS EVENING FOR THE FOLLOWING\nAREAS\n\nIN NEBRASKA THIS WATCH INCLUDES 8 COUNTIES\n\nIN PANHANDLE NEBRASKA\n\nBOX BUTTE             CHEYENNE\n\nIN WESTERN NEBRASKA\n\nBANNER                DAWES                 KIMBALL\nMORRILL               SCOTTS BLUFF          SIOUX\n\nTHIS INCLUDES THE CITIES OF AGATE, ALLIANCE, ANGORA, BAYARD,\nBRIDGEPORT, BROWNSON, CHADRON, CHADRON ST PARK, GERING,\nHARRISBURG, HARRISON, HEMINGFORD, KIMBALL, REDINGTON,\nSCOTTSBLUFF, AND SIDNEY.",
+                "instruction": null,
+                "response": "Monitor",
+                "parameters": {
+                    "PIL": [
+                        "CYSWCNCYS"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KCYS.SV.A.0440.210814T2130Z-210815T0500Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-15T05:00:00+00:00"
+                    ]
+                },
+                "replacedBy": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.22cccb674942fb96eead451a30ed5515138bbb90.001.1",
+                "replacedAt": "2021-08-14T22:32:00-06:00"
+            }
+        }
+    ],
+    "title": "watches, warnings, and advisories for 41.8666 N, 103.6672 W",
+    "updated": "2021-08-20T00:58:00+00:00",
+    "pagination": {
+        "next": "https://api.weather.gov/alerts?point=41.8666,-103.6672&cursor=eyJ0IjoxNjI4OTc2NjAwLCJpIjoidXJuOm9pZDoyLjQ5LjAuMS44NDAuMC5lYjdhMTdmZGNmODc2MzhmYjU4MGNjYTczM2FkYzc4MGUzYTA2MjZjLjAwMS4xIn0%3D"
+    }
+}
