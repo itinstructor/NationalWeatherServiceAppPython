@@ -1,0 +1,826 @@
+https://api.weather.gov/alerts/active?area=NE
+
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0776d9b7f5ba446181c9caf3dd4d5025276e61eb.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -99,
+                            39.969999999999999
+                        ],
+                        [
+                            -99.099999999999994,
+                            40.199999999999996
+                        ],
+                        [
+                            -98.329999999999998,
+                            40.289999999999999
+                        ],
+                        [
+                            -98.349999999999994,
+                            39.960000000000001
+                        ],
+                        [
+                            -99,
+                            39.969999999999999
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.0776d9b7f5ba446181c9caf3dd4d5025276e61eb.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.0776d9b7f5ba446181c9caf3dd4d5025276e61eb.001.1",
+                "areaDesc": "Jewell, KS; Smith, KS; Franklin, NE; Webster, NE",
+                "geocode": {
+                    "SAME": [
+                        "020089",
+                        "020183",
+                        "031061",
+                        "031181"
+                    ],
+                    "UGC": [
+                        "KSC089",
+                        "KSC183",
+                        "NEC061",
+                        "NEC181"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/KSC089",
+                    "https://api.weather.gov/zones/county/KSC183",
+                    "https://api.weather.gov/zones/county/NEC061",
+                    "https://api.weather.gov/zones/county/NEC181"
+                ],
+                "references": [],
+                "sent": "2021-08-22T21:47:00-05:00",
+                "effective": "2021-08-22T21:47:00-05:00",
+                "onset": "2021-08-22T21:47:00-05:00",
+                "expires": "2021-08-22T22:30:00-05:00",
+                "ends": "2021-08-22T22:30:00-05:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Observed",
+                "urgency": "Immediate",
+                "event": "Severe Thunderstorm Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Severe Thunderstorm Warning issued August 22 at 9:47PM CDT until August 22 at 10:30PM CDT by NWS Hastings NE",
+                "description": "The National Weather Service in Hastings has issued a\n\n* Severe Thunderstorm Warning for...\nNorthwestern Jewell County in north central Kansas...\nNortheastern Smith County in north central Kansas...\nSouthern Franklin County in south central Nebraska...\nWebster County in south central Nebraska...\n\n* Until 1030 PM CDT.\n\n* At 947 PM CDT, a severe thunderstorm was located over Franklin, or\n29 miles northeast of Phillipsburg, moving east at 40 mph.\n\nHAZARD...Golf ball size hail and 60 mph wind gusts.\n\nSOURCE...Radar indicated.\n\nIMPACT...People and animals outdoors will be injured. Expect hail\ndamage to roofs, siding, windows, and vehicles. Expect\nwind damage to roofs, siding, and trees.\n\n* This severe thunderstorm will be near...\nRiverton around 1000 PM CDT.\n\nOther locations in the path of this severe thunderstorm include\nInavale, Red Cloud and Cowles.",
+                "instruction": "For your protection move to an interior room on the lowest floor of a\nbuilding.",
+                "response": "Shelter",
+                "parameters": {
+                    "PIL": [
+                        "GIDSVRGID"
+                    ],
+                    "eventMotionDescription": [
+                        "2021-08-23T02:47:00-00:00...storm...268DEG...35KT...40.06,-98.93"
+                    ],
+                    "windThreat": [
+                        "RADAR INDICATED"
+                    ],
+                    "maxWindGust": [
+                        "60 MPH"
+                    ],
+                    "hailThreat": [
+                        "RADAR INDICATED"
+                    ],
+                    "maxHailSize": [
+                        1.75
+                    ],
+                    "thunderstormDamageThreat": [
+                        "CONSIDERABLE"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KGID.SV.W.0184.210823T0247Z-210823T0330Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-23T03:30:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a4d3cd1c99803707d4d41a1d6bd0ef5d055cc7ac.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -98.599999999999994,
+                            40.289999999999999
+                        ],
+                        [
+                            -98.579999999999998,
+                            40
+                        ],
+                        [
+                            -98.75,
+                            40
+                        ],
+                        [
+                            -99.180000000000007,
+                            40.030000000000001
+                        ],
+                        [
+                            -99.180000000000007,
+                            40.219999999999999
+                        ],
+                        [
+                            -98.599999999999994,
+                            40.289999999999999
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a4d3cd1c99803707d4d41a1d6bd0ef5d055cc7ac.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.a4d3cd1c99803707d4d41a1d6bd0ef5d055cc7ac.001.1",
+                "areaDesc": "Franklin; Webster",
+                "geocode": {
+                    "SAME": [
+                        "031061",
+                        "031181"
+                    ],
+                    "UGC": [
+                        "NEZ084",
+                        "NEZ085"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/NEZ084",
+                    "https://api.weather.gov/zones/forecast/NEZ085"
+                ],
+                "references": [],
+                "sent": "2021-08-22T21:33:00-05:00",
+                "effective": "2021-08-22T21:33:00-05:00",
+                "onset": "2021-08-22T21:33:00-05:00",
+                "expires": "2021-08-22T22:15:00-05:00",
+                "ends": null,
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Observed",
+                "urgency": "Expected",
+                "event": "Special Weather Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Special Weather Statement issued August 22 at 9:33PM CDT by NWS Hastings NE",
+                "description": "At 933 PM CDT, Doppler radar was tracking a strong thunderstorm over\nNaponee, or 26 miles southeast of Holdrege, moving east at 30 mph.\n\nHAZARD...Wind gusts up to 50 mph and nickel size hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor damage to outdoor objects is\npossible.\n\nThis strong thunderstorm will be near...\nBloomington around 945 PM CDT.\n\nOther locations in the path of this storm include Franklin, Riverton\nand Inavale.",
+                "instruction": "If outdoors, consider seeking shelter inside a building.\n\nA Severe Thunderstorm Watch remains in effect until 1000 PM CDT for\nnorth central Kansas...and south central Nebraska.",
+                "response": "Execute",
+                "parameters": {
+                    "PIL": [
+                        "GIDSPSGID"
+                    ],
+                    "NWSheadline": [
+                        "A strong thunderstorm will impact portions of Franklin and western Webster Counties through 1015 PM CDT"
+                    ],
+                    "eventMotionDescription": [
+                        "2021-08-23T02:33:00-00:00...storm...267DEG...25KT...40.11,-99.12"
+                    ],
+                    "maxWindGust": [
+                        "50 MPH"
+                    ],
+                    "maxHailSize": [
+                        0.88
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.206ab661cdbcd482636ca23489d7b1b1aab78b1a.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -99.659999999999997,
+                            40.130000000000003
+                        ],
+                        [
+                            -99.719999999999999,
+                            40.140000000000001
+                        ],
+                        [
+                            -99.75,
+                            40.140000000000001
+                        ],
+                        [
+                            -99.870000000000005,
+                            40.159999900000003
+                        ],
+                        [
+                            -99.870000000000005,
+                            40.210000000000001
+                        ],
+                        [
+                            -99.7099999,
+                            40.25
+                        ],
+                        [
+                            -99.390000000000001,
+                            40.259999999999998
+                        ],
+                        [
+                            -99.319999899999999,
+                            40.259999999999998
+                        ],
+                        [
+                            -99.329999999999998,
+                            40.169999999999995
+                        ],
+                        [
+                            -99.390000000000001,
+                            40.119999999999997
+                        ],
+                        [
+                            -99.659999999999997,
+                            40.130000000000003
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.206ab661cdbcd482636ca23489d7b1b1aab78b1a.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.206ab661cdbcd482636ca23489d7b1b1aab78b1a.001.1",
+                "areaDesc": "Furnas, NE; Harlan, NE",
+                "geocode": {
+                    "SAME": [
+                        "031065",
+                        "031083"
+                    ],
+                    "UGC": [
+                        "NEC065",
+                        "NEC083"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC065",
+                    "https://api.weather.gov/zones/county/NEC083"
+                ],
+                "references": [],
+                "sent": "2021-08-22T21:28:00-05:00",
+                "effective": "2021-08-22T21:28:00-05:00",
+                "onset": "2021-08-22T21:28:00-05:00",
+                "expires": "2021-08-23T01:30:00-05:00",
+                "ends": "2021-08-23T01:30:00-05:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Likely",
+                "urgency": "Immediate",
+                "event": "Flash Flood Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Flash Flood Warning issued August 22 at 9:28PM CDT until August 23 at 1:30AM CDT by NWS Hastings NE",
+                "description": "The National Weather Service in Hastings has issued a\n\n* Flash Flood Warning for...\nEast Central Furnas County in south central Nebraska...\nWest Central Harlan County in south central Nebraska...\n\n* Until 130 AM CDT.\n\n* At 928 PM CDT, Doppler radar indicated thunderstorms producing\nheavy rain across the warned area. Between 4 and 6 inches of rain\nhave fallen in much of the Warning area as of 925 PM CDT,\nincluding a mesonet station with 4.52 inches six miles\neast-southeast of Oxford. Additional rainfall of 1 to 2 inches are\npossible in the warned area over the next few hours. Flash\nflooding is ongoing or expected to begin shortly.\n\nHAZARD...Flash flooding caused by thunderstorms.\n\nSOURCE...Radar.\n\nIMPACT...Flash flooding of small creeks and streams, urban\nareas, highways, streets and underpasses as well as\nother poor drainage and low-lying areas.\n\n* Some locations that could experience flash flooding include...\nOxford, Orleans, Stamford and Hollinger.\n\nThis includes the following streams and drainages...\nMethodist Creek, School Creek, Deep Creek, Rope Creek, Turkey\nCreek, Flag Creek, Sappa Creek, Milrose Creek and Beaver Creek.",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nBe especially cautious at night when it is harder to recognize the\ndangers of flooding.",
+                "response": "Avoid",
+                "parameters": {
+                    "PIL": [
+                        "GIDFFWGID"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KGID.FF.W.0007.210823T0228Z-210823T0630Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-23T06:30:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9a868c3616051bf9757c36e9f78f07f4323bcff0.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -97.930000000000007,
+                            40
+                        ],
+                        [
+                            -97.930000000000007,
+                            39.93
+                        ],
+                        [
+                            -98.610000000000014,
+                            39.859999999999999
+                        ],
+                        [
+                            -98.730000000000018,
+                            40.07
+                        ],
+                        [
+                            -98.730000000000018,
+                            40.140000000000001
+                        ],
+                        [
+                            -98.030000000000015,
+                            40.340000000000003
+                        ],
+                        [
+                            -97.88000000000001,
+                            40
+                        ],
+                        [
+                            -97.930000000000007,
+                            40
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.9a868c3616051bf9757c36e9f78f07f4323bcff0.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.9a868c3616051bf9757c36e9f78f07f4323bcff0.001.1",
+                "areaDesc": "Smith; Jewell; Webster; Nuckolls",
+                "geocode": {
+                    "SAME": [
+                        "020183",
+                        "020089",
+                        "031181",
+                        "031129"
+                    ],
+                    "UGC": [
+                        "KSZ006",
+                        "KSZ007",
+                        "NEZ085",
+                        "NEZ086"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/KSZ006",
+                    "https://api.weather.gov/zones/forecast/KSZ007",
+                    "https://api.weather.gov/zones/forecast/NEZ085",
+                    "https://api.weather.gov/zones/forecast/NEZ086"
+                ],
+                "references": [],
+                "sent": "2021-08-22T21:15:00-05:00",
+                "effective": "2021-08-22T21:15:00-05:00",
+                "onset": "2021-08-22T21:15:00-05:00",
+                "expires": "2021-08-22T22:00:00-05:00",
+                "ends": null,
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Moderate",
+                "certainty": "Observed",
+                "urgency": "Expected",
+                "event": "Special Weather Statement",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Special Weather Statement issued August 22 at 9:15PM CDT by NWS Hastings NE",
+                "description": "At 915 PM CDT, Doppler radar was tracking a strong thunderstorm over\nRed Cloud, or 36 miles south of Hastings, moving east at 35 mph.\n\nHAZARD...Wind gusts up to 50 mph and half inch hail.\n\nSOURCE...Radar indicated.\n\nIMPACT...Gusty winds could knock down tree limbs and blow around\nunsecured objects. Minor damage to outdoor objects is\npossible.\n\nThis strong thunderstorm will be near...\nCowles around 920 PM CDT.\nGuide Rock around 930 PM CDT.\n\nOther locations in the path of this storm include Bostwick, Superior,\nNelson and Nora.",
+                "instruction": "If outdoors, consider seeking shelter inside a building.\n\nA Severe Thunderstorm Watch remains in effect until 1000 PM CDT for\nnorth central Kansas...and south central Nebraska.",
+                "response": "Execute",
+                "parameters": {
+                    "PIL": [
+                        "GIDSPSGID"
+                    ],
+                    "NWSheadline": [
+                        "A strong thunderstorm will impact portions of northern Jewell, northeastern Smith, Nuckolls and southern Webster Counties through 1000 PM CDT"
+                    ],
+                    "eventMotionDescription": [
+                        "2021-08-23T02:15:00-00:00...storm...262DEG...28KT...40.07,-98.5"
+                    ],
+                    "maxWindGust": [
+                        "50 MPH"
+                    ],
+                    "maxHailSize": [
+                        0.5
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.740e3ce0ce2863e1eb229ccb29f943f55b5b3c64.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -99.670000000000002,
+                            40.140000000000001
+                        ],
+                        [
+                            -99.760000000000005,
+                            40.079999999999998
+                        ],
+                        [
+                            -99.840000000000003,
+                            40.030000000000001
+                        ],
+                        [
+                            -99.890000000000001,
+                            40.039999999999999
+                        ],
+                        [
+                            -100,
+                            40.049999999999997
+                        ],
+                        [
+                            -100.11,
+                            40.059999999999995
+                        ],
+                        [
+                            -100.15000000000001,
+                            40.179999999999993
+                        ],
+                        [
+                            -100.04000000000001,
+                            40.229999899999996
+                        ],
+                        [
+                            -99.819999900000013,
+                            40.249999999999993
+                        ],
+                        [
+                            -99.550000000000011,
+                            40.259999999999991
+                        ],
+                        [
+                            -99.540000000000006,
+                            40.259999999999991
+                        ],
+                        [
+                            -99.670000000000002,
+                            40.140000000000001
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.740e3ce0ce2863e1eb229ccb29f943f55b5b3c64.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.740e3ce0ce2863e1eb229ccb29f943f55b5b3c64.001.1",
+                "areaDesc": "Furnas, NE; Harlan, NE",
+                "geocode": {
+                    "SAME": [
+                        "031065",
+                        "031083"
+                    ],
+                    "UGC": [
+                        "NEC065",
+                        "NEC083"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/NEC065",
+                    "https://api.weather.gov/zones/county/NEC083"
+                ],
+                "references": [],
+                "sent": "2021-08-22T21:05:00-05:00",
+                "effective": "2021-08-22T21:05:00-05:00",
+                "onset": "2021-08-22T21:05:00-05:00",
+                "expires": "2021-08-23T01:30:00-05:00",
+                "ends": "2021-08-23T01:30:00-05:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Minor",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Flood Advisory",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Flood Advisory issued August 22 at 9:05PM CDT until August 23 at 1:30AM CDT by NWS Hastings NE",
+                "description": "The National Weather Service in Hastings has issued a\n\n* Flood Advisory for...\nCentral Furnas County in south central Nebraska...\nWest Central Harlan County in south central Nebraska...\n\n* Until 130 AM CDT.\n\n* At 905 PM CDT, Doppler radar indicated heavy rain due to\nthunderstorms. Minor flooding is ongoing or expected to begin\nshortly in the Advisory area. Between 2 and 4 inches of rain have\nfallen in much of the area this evening as of 9 PM CDT. Parts of\nthe area could receive at least another 1 to 2 inches yet this\nevening.\n\n* Some locations that could experience flooding include...\nOxford, Beaver City, Wilsonville, Hendley and Hollinger.\n\nThis includes the following streams and drainages...\nDeep Creek, Dry Creek, Timmons Creek, Swartz Creek, Sappa Creek,\nTurkey Creek and Beaver Creek.",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nBe especially cautious at night when it is harder to recognize the\ndangers of flooding.",
+                "response": "Avoid",
+                "parameters": {
+                    "PIL": [
+                        "GIDFLSGID"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KGID.FA.Y.0030.210823T0205Z-210823T0630Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-23T06:30:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a5e5d93a6bbabd1fd1ffc35e08c5d6b41575218d.002.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.a5e5d93a6bbabd1fd1ffc35e08c5d6b41575218d.002.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.a5e5d93a6bbabd1fd1ffc35e08c5d6b41575218d.002.1",
+                "areaDesc": "Jewell, KS; Osborne, KS; Phillips, KS; Smith, KS; Adams, NE; Buffalo, NE; Clay, NE; Franklin, NE; Furnas, NE; Greeley, NE; Hall, NE; Hamilton, NE; Harlan, NE; Howard, NE; Kearney, NE; Merrick, NE; Nance, NE; Nuckolls, NE; Phelps, NE; Sherman, NE; Webster, NE",
+                "geocode": {
+                    "SAME": [
+                        "020089",
+                        "020141",
+                        "020147",
+                        "020183",
+                        "031001",
+                        "031019",
+                        "031035",
+                        "031061",
+                        "031065",
+                        "031077",
+                        "031079",
+                        "031081",
+                        "031083",
+                        "031093",
+                        "031099",
+                        "031121",
+                        "031125",
+                        "031129",
+                        "031137",
+                        "031163",
+                        "031181"
+                    ],
+                    "UGC": [
+                        "KSC089",
+                        "KSC141",
+                        "KSC147",
+                        "KSC183",
+                        "NEC001",
+                        "NEC019",
+                        "NEC035",
+                        "NEC061",
+                        "NEC065",
+                        "NEC077",
+                        "NEC079",
+                        "NEC081",
+                        "NEC083",
+                        "NEC093",
+                        "NEC099",
+                        "NEC121",
+                        "NEC125",
+                        "NEC129",
+                        "NEC137",
+                        "NEC163",
+                        "NEC181"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/KSC089",
+                    "https://api.weather.gov/zones/county/KSC141",
+                    "https://api.weather.gov/zones/county/KSC147",
+                    "https://api.weather.gov/zones/county/KSC183",
+                    "https://api.weather.gov/zones/county/NEC001",
+                    "https://api.weather.gov/zones/county/NEC019",
+                    "https://api.weather.gov/zones/county/NEC035",
+                    "https://api.weather.gov/zones/county/NEC061",
+                    "https://api.weather.gov/zones/county/NEC065",
+                    "https://api.weather.gov/zones/county/NEC077",
+                    "https://api.weather.gov/zones/county/NEC079",
+                    "https://api.weather.gov/zones/county/NEC081",
+                    "https://api.weather.gov/zones/county/NEC083",
+                    "https://api.weather.gov/zones/county/NEC093",
+                    "https://api.weather.gov/zones/county/NEC099",
+                    "https://api.weather.gov/zones/county/NEC121",
+                    "https://api.weather.gov/zones/county/NEC125",
+                    "https://api.weather.gov/zones/county/NEC129",
+                    "https://api.weather.gov/zones/county/NEC137",
+                    "https://api.weather.gov/zones/county/NEC163",
+                    "https://api.weather.gov/zones/county/NEC181"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.7c261c4cb3e4b232c7f8ca1a4c869370b6069113.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.7c261c4cb3e4b232c7f8ca1a4c869370b6069113.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-22T17:02:00-05:00"
+                    }
+                ],
+                "sent": "2021-08-22T21:02:00-05:00",
+                "effective": "2021-08-22T21:02:00-05:00",
+                "onset": "2021-08-22T21:02:00-05:00",
+                "expires": "2021-08-22T22:15:00-05:00",
+                "ends": "2021-08-22T22:00:00-05:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Possible",
+                "urgency": "Future",
+                "event": "Severe Thunderstorm Watch",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Severe Thunderstorm Watch issued August 22 at 9:02PM CDT until August 22 at 10:00PM CDT by NWS Hastings NE",
+                "description": "SEVERE THUNDERSTORM WATCH 456 REMAINS VALID UNTIL 10 PM CDT THIS\nEVENING FOR THE FOLLOWING AREAS\n\nIN KANSAS THIS WATCH INCLUDES 4 COUNTIES\n\nIN NORTH CENTRAL KANSAS\n\nJEWELL                OSBORNE               PHILLIPS\nSMITH\n\nIN NEBRASKA THIS WATCH INCLUDES 17 COUNTIES\n\nIN CENTRAL NEBRASKA\n\nGREELEY               HOWARD                MERRICK\nNANCE                 SHERMAN\n\nIN SOUTH CENTRAL NEBRASKA\n\nADAMS                 BUFFALO               CLAY\nFRANKLIN              FURNAS                HALL\nHAMILTON              HARLAN                KEARNEY\nNUCKOLLS              PHELPS                WEBSTER\n\nTHIS INCLUDES THE CITIES OF ALMA, ARAPAHOE, AURORA, BEAVER CITY,\nBELLAIRE, BLADEN, BLUE HILL, BOSTWICK, BURR OAK, CAMBRIDGE,\nCAMPBELL, CENTRAL CITY, CLAY CENTER, DOWNS, EDGAR, FAIRFIELD,\nFRANKLIN, FULLERTON, GENOA, GRAND ISLAND, GREELEY, HARVARD,\nHASTINGS, HILDRETH, HOLDREGE, HOLLINGER, INAVALE, IONIA, JEWELL,\nKEARNEY, KENSINGTON, LITCHFIELD, LOUP CITY, MANKATO, MINDEN,\nNELSON, ORLEANS, OSBORNE, OXFORD, PHILLIPSBURG, RED CLOUD,\nROSEMONT, SCOTIA, SHERMAN RESERVOIR, SMITH CENTER, SPALDING,\nST. LIBORY, SUPERIOR, SUTTON, AND WOLBACH.",
+                "instruction": null,
+                "response": "Monitor",
+                "parameters": {
+                    "PIL": [
+                        "GIDWCNGID"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "EAS-ORG": [
+                        "WXR"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KGID.SV.A.0456.000000T0000Z-210823T0300Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-23T03:00:00+00:00"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.546334156edfdfa94ebe56b903216e8fca8beb3d.001.1",
+            "type": "Feature",
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            -99.849999999999994,
+                            40
+                        ],
+                        [
+                            -99.849999999999994,
+                            40.030000000000001
+                        ],
+                        [
+                            -99.769999999999996,
+                            40.07
+                        ],
+                        [
+                            -99.61999999999999,
+                            40.18
+                        ],
+                        [
+                            -99.539999999999992,
+                            40.270000000000003
+                        ],
+                        [
+                            -99.129999999999995,
+                            40.280000000000001
+                        ],
+                        [
+                            -99.179999999999993,
+                            40.120000000000005
+                        ],
+                        [
+                            -99.269999999999996,
+                            39.970000000000006
+                        ],
+                        [
+                            -99.469999999999999,
+                            39.920000000000009
+                        ],
+                        [
+                            -99.629999999999995,
+                            39.930000000000007
+                        ],
+                        [
+                            -99.629999999999995,
+                            40.000000000000007
+                        ],
+                        [
+                            -99.849999999999994,
+                            40
+                        ]
+                    ]
+                ]
+            },
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.546334156edfdfa94ebe56b903216e8fca8beb3d.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.546334156edfdfa94ebe56b903216e8fca8beb3d.001.1",
+                "areaDesc": "Phillips, KS; Franklin, NE; Furnas, NE; Harlan, NE",
+                "geocode": {
+                    "SAME": [
+                        "020147",
+                        "031061",
+                        "031065",
+                        "031083"
+                    ],
+                    "UGC": [
+                        "KSC147",
+                        "NEC061",
+                        "NEC065",
+                        "NEC083"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/county/KSC147",
+                    "https://api.weather.gov/zones/county/NEC061",
+                    "https://api.weather.gov/zones/county/NEC065",
+                    "https://api.weather.gov/zones/county/NEC083"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f24bc129c3f87a6c723e085c55bde49f8273c65e.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.f24bc129c3f87a6c723e085c55bde49f8273c65e.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2021-08-22T19:26:00-05:00"
+                    }
+                ],
+                "sent": "2021-08-22T20:50:00-05:00",
+                "effective": "2021-08-22T20:50:00-05:00",
+                "onset": "2021-08-22T20:50:00-05:00",
+                "expires": "2021-08-23T01:30:00-05:00",
+                "ends": "2021-08-23T01:30:00-05:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Minor",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Flood Advisory",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Hastings NE",
+                "headline": "Flood Advisory issued August 22 at 8:50PM CDT until August 23 at 1:30AM CDT by NWS Hastings NE",
+                "description": "At 850 PM CDT, Doppler radar indicated heavy rain due to\nthunderstorms. Minor flooding is ongoing or expected to begin\nshortly in the advisory area. Between 2 and 4 inches of rain have\nfallen in much of the area this evening as of 845 PM CDT, including\na measured report of 3.80 inches six miles east-southeast of Oxford.\n\nSome locations that could experience flooding include...\nAlma, Orleans, Stamford, Republican City, Long Island, Huntley,\nWoodruff and Harlan County Dam.\n\nThis includes the following streams and drainages...\nFlag Creek, Cook Creek, School Creek, Prairie Dog Creek, Sappa\nCreek, Milrose Creek, Beaver Creek, Turkey Creek, Rope Creek, West\nBranch Thompson Creek and Crystal Creek.",
+                "instruction": "Turn around, don't drown when encountering flooded roads. Most flood\ndeaths occur in vehicles.\n\nBe especially cautious at night when it is harder to recognize the\ndangers of flooding.",
+                "response": "Avoid",
+                "parameters": {
+                    "PIL": [
+                        "GIDFLSGID"
+                    ],
+                    "NWSheadline": [
+                        "FLOOD ADVISORY REMAINS IN EFFECT UNTIL 130 AM CDT MONDAY FOR NORTHWESTERN PHILLIPS, WEST CENTRAL FRANKLIN, SOUTHEASTERN FURNAS AND HARLAN COUNTIES"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KGID.FA.Y.0029.000000T0000Z-210823T0630Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2021-08-23T06:30:00+00:00"
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "current watches, warnings, and advisories for Nebraska",
+    "updated": "2021-08-23T02:47:37+00:00"
+}
