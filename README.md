@@ -1,6 +1,12 @@
-# National Weather Service CLI Application in Python
+# National Weather Service App in Python
+
+CLI using the [rich](https://rich.readthedocs.io/en/stable/introduction.html) library.
 
 ![NWS Screenshot](./img/latest_weather_information.png)
+
+Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
+
+![NWS Screenshot](./img/nws_gui.png)
 
 ### Overview
 
@@ -18,7 +24,7 @@
 
 ### Changes
 
-- 11/02/2024: Create Tkinter GUI version
+- 11/02/2024: Create Tkinter GUI version using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 - 09/24/2022: Refactor to MVC. nws_cli.py is the view, nws_class.py is the controller.
 - 09/05/2022: Refactor to divide up methods to be more specific to better handle and report errors. Minor fixes.
 - 07/17/2022: Instead of getting all the weather data at once from successive API calls, API call's are only made when needed, added more exception handling
