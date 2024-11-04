@@ -24,7 +24,7 @@ Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 
 ### Changes
 
-- 11/02/2024: Create Tkinter GUI version using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/). I used Claude.ai as a code helper for some of the code for this update.  
+- 11/02/2024: Create Tkinter GUI version using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/). I used Claude.ai and GitHub Copilot as code helpers for some of the code for this update.  
 - 09/24/2022: Refactor to MVC. nws_cli.py is the view, nws_class.py is the controller.
 - 09/05/2022: Refactor to divide up methods to be more specific to better handle and report errors. Minor fixes.
 - 07/17/2022: Instead of getting all the weather data at once from successive API calls, API call's are only made when needed, added more exception handling

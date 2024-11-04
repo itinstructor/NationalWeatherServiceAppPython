@@ -4,6 +4,7 @@
     Created:
     Purpose: OOP Tkinter app
     Get weather data from the National Weather Service
+    Claude.ai and GitHub Copilot were code helpers
 """
 
 from base64 import b64decode
@@ -23,20 +24,48 @@ class WeatherGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("National Weather Service Weather App")
-        # Increased window size for hourly forecast
-        # self.root.geometry("1000x1150")
 
-        # Set window and taskbar icon
+        self.root.geometry("+50+50")
+
+        # Remove the title bar
+        self.root.overrideredirect(True)
+
+        # Set window and taskbar icon using base64 encoded image data
         small_icon = ttk.PhotoImage(data=b64decode(weather_16))
         large_icon = ttk.PhotoImage(data=b64decode(weather_32))
         self.root.iconphoto(False, large_icon, small_icon)
 
         # Set style for Treeview rowheight to separate rows
         style = ttk.Style()
-        style.configure("Treeview", rowheight=35)  # Adjust rowheight as needed
+        # Adjust rowheight as needed
+        style.configure("Treeview", rowheight=35)
+
+        # Bind mouse events to enable dragging
+        self.root.bind("<ButtonPress-1>", self.start_move)
+        self.root.bind("<ButtonRelease-1>", self.stop_move)
+        self.root.bind("<B1-Motion>", self.do_move)
 
         self.create_widgets()
         self.weather = WeatherClass()
+
+    # ----------------------- DRAG WINDOW --------------------------------- #
+    def start_move(self, event):
+        self.x = event.x
+        self.y = event.y
+
+    def stop_move(self, event):
+        self.x = None
+        self.y = None
+
+    def do_move(self, event):
+        # Calculate the change in position
+        deltax = event.x - self.x
+        deltay = event.y - self.y
+        # Move the window to the new position
+        x = self.root.winfo_x() + deltax
+        y = self.root.winfo_y() + deltay
+        # Update the window position
+        self.root.geometry(f"+{x}+{y}")
 
 # ----------------------- CREATE WIDGETS --------------------------------- #
     def create_widgets(self):
@@ -56,29 +85,37 @@ class WeatherGUI:
         self.notebook.add(self.alerts_frame, text="Weather Alerts")
         self.notebook.add(self.hourly_forecast_frame, text="Hourly Forecast")
         self.notebook.add(self.forecast_frame, text="7-Day Forecast")
-        self.notebook.add(self.detailed_forecast_frame,
-                          text="Detailed Forecast")
+        self.notebook.add(
+            self.detailed_forecast_frame,
+            text="7-Day Detailed Forecast"
+        )
 
     # ----------------------- LOCATION FRAME ----------------------------- #
         self.location_frame = ttk.LabelFrame(
             self.root, text="Location", padding="5")
         self.location_frame.grid(row=1, column=0, columnspan=2, sticky=(W, E))
 
-        # City/State Entry
+        # City Entry
         ttk.Label(self.location_frame, text="City:").grid(row=0, column=0)
         self.city_entry = ttk.Entry(self.location_frame, width=30)
         self.city_entry.grid(row=0, column=1)
 
+        # State Entry
         ttk.Label(self.location_frame, text="State:").grid(row=0, column=2)
         self.state_entry = ttk.Entry(self.location_frame, width=15)
         self.state_entry.grid(row=0, column=3)
 
-        self.city_entry.focus()
-        self.city_entry.select_range(0, END)
+        # Get Weather Button
+        self.btn_get_weather = ttk.Button(
+            self.location_frame, text="Get Weather",
+            command=self.fetch_weather, width=14)
+        self.btn_get_weather.grid(row=0, column=4)
 
-        self.get_weather_btn = ttk.Button(
-            self.location_frame, text="Get Weather", command=self.fetch_weather)
-        self.get_weather_btn.grid(row=0, column=4)
+        # Exit Button
+        self.btn_exit = ttk.Button(
+            self.location_frame, text="Exit", command=self.quit, width=14
+        )
+        self.btn_exit.grid(row=0, column=5)
 
     # ----------------------- COORDINATES FRAME -------------------------- #
         self.coords_frame = ttk.LabelFrame(self.root, text="Coordinates")
@@ -120,6 +157,12 @@ class WeatherGUI:
             ("Elevation:", self.elevation_var)
         ]
 
+        # Create labels and text variables for current weather
+        # enumerate(weather_items) returns an iterator that produces pairs
+        # of an index and the corresponding item from weather_items.
+        # for i, (label, var) in enumerate(weather_items):
+        # iterates over these pairs, unpacking each pair into
+        # i (the index), label, and var.
         for i, (label, var) in enumerate(weather_items):
             ttk.Label(self.current_weather_frame, text=label).grid(
                 row=i, column=0, sticky=W)
@@ -147,7 +190,7 @@ class WeatherGUI:
             height=TREE_HEIGHT
         )
 
-        # Define alternating row tags
+        # Define alternating row tags for banded row display
         self.hourly_tree.tag_configure("oddrow", background="gray30")
         self.hourly_tree.tag_configure("evenrow", background="gray15")
 
@@ -157,11 +200,11 @@ class WeatherGUI:
         self.hourly_tree.heading("Wind Dir", text="Wind Dir")
         self.hourly_tree.heading("Forecast", text="Forecast")
 
-        self.hourly_tree.column("Time", width=100)
-        self.hourly_tree.column("Temp", width=110)
+        self.hourly_tree.column("Time", width=95)
+        self.hourly_tree.column("Temp", width=95)
         self.hourly_tree.column("Wind Spd", width=100)
         self.hourly_tree.column("Wind Dir", width=100)
-        self.hourly_tree.column("Forecast", width=400)
+        self.hourly_tree.column("Forecast", width=200)
 
         self.hourly_tree.grid(row=0, column=0, sticky=(W, E, N, S))
 
@@ -176,24 +219,27 @@ class WeatherGUI:
     # ----------------- 7-DAY FORECAST TREEVIEW -------------------------- #
         self.forecast_tree = ttk.Treeview(
             self.forecast_frame, columns=(
-                "Period", "Temperature", "Wind", "Forecast"),
+                "Period", "Temperature", "Wind Spd", "Wind Dir", "Forecast"
+            ),
             show="headings",
             height=TREE_HEIGHT
         )
 
-        # Define alternating row tags
+        # Define alternating row tags for banded row display
         self.forecast_tree.tag_configure("oddrow", background="gray30")
         self.forecast_tree.tag_configure("evenrow", background="gray15")
 
         self.forecast_tree.heading("Period", text="Period")
         self.forecast_tree.heading("Temperature", text="Temp")
-        self.forecast_tree.heading("Wind", text="Wind")
+        self.forecast_tree.heading("Wind Spd", text="Wind Spd")
+        self.forecast_tree.heading("Wind Dir", text="Wind Dir")
         self.forecast_tree.heading("Forecast", text="Forecast")
 
         self.forecast_tree.column("Period", width=175)
-        self.forecast_tree.column("Temperature", width=120)
-        self.forecast_tree.column("Wind", width=200)
-        self.forecast_tree.column("Forecast", width=500)
+        self.forecast_tree.column("Temperature", width=85)
+        self.forecast_tree.column("Wind Spd", width=135)
+        self.forecast_tree.column("Wind Dir", width=90)
+        self.forecast_tree.column("Forecast", width=525)
 
         forecast_scrollbar = ttk.Scrollbar(
             self.forecast_frame, orient="vertical",
@@ -210,7 +256,7 @@ class WeatherGUI:
             height=TREE_HEIGHT
         )
 
-        # Define alternating row tags
+        # Define alternating row tags for banded row display
         self.detailed_forecast_tree.tag_configure(
             "oddrow", background="gray30")
         self.detailed_forecast_tree.tag_configure(
@@ -267,6 +313,10 @@ class WeatherGUI:
         self.city_entry.insert(0, "Scottsbluff")
         self.state_entry.insert(0, "NE")
 
+        # Focus on city entry and select all text for ease of data entry
+        self.city_entry.focus()
+        self.city_entry.select_range(0, END)
+
         # Either enter key will call the method
         self.root.bind("<Return>", self.fetch_weather)
         self.root.bind("<KP_Enter>", self.fetch_weather)
@@ -278,16 +328,18 @@ class WeatherGUI:
             city = self.city_entry.get().strip()
             state = self.state_entry.get().strip()
 
+            # Check if city and state are entered
             if not city or not state:
                 ttk.messagebox.showerror(
                     "Error", "Please enter both city and state")
                 return
 
-            # Get coordinates from city/state
+            # Geocode city and astate to get coordinates from city/state
             location_info = geocode(city, state, country="US")
             if not location_info:
                 return
 
+            # Unpack location_info tuple
             lat, lng, address = location_info
 
             # Update coordinates and address display
@@ -362,7 +414,8 @@ class WeatherGUI:
 
             if hasattr(self.weather, 'forecast_hourly_list'):
                 for index, period in enumerate(self.weather.forecast_hourly_list[:24]):
-                    # Apply "oddrow" tag to even-indexed rows and "evenrow" to odd-indexed rows
+                    # Apply "oddrow" tag to even-indexed rows
+                    # and "evenrow" to odd-indexed rows
                     row_tag = "oddrow" if index % 2 == 0 else "evenrow"
                     self.hourly_tree.insert(
                         "",
@@ -385,13 +438,15 @@ class WeatherGUI:
 
             if hasattr(self.weather, 'forecast_list'):
                 for index, period in enumerate(self.weather.forecast_list):
-                    # Apply "oddrow" tag to even-indexed rows and "evenrow" to odd-indexed rows
+                    # Apply "oddrow" tag to even-indexed rows
+                    # and "evenrow" to odd-indexed rows
                     row_tag = "oddrow" if index % 2 == 0 else "evenrow"
                     # Update simple forecast
                     self.forecast_tree.insert("", "end", values=(
                         period['name'],
                         f"{period['temperature']}°{period['temperatureUnit']}",
-                        f"{period['windSpeed']} {period['windDirection']}",
+                        f"{period['windSpeed']}",
+                        f"{period['windDirection']}",
                         period['shortForecast']
                     ),
                         tags=(row_tag,)  # Added tags parameter
@@ -400,8 +455,10 @@ class WeatherGUI:
                     # Update detailed forecast
                     self.detailed_forecast_tree.insert("", "end", values=(
                         period['name'],
-                        period.get('detailedForecast',
-                                   'No detailed forecast available')
+                        period.get(
+                            'detailedForecast',
+                            'No detailed forecast available'
+                        )
                     ),
                         tags=(row_tag,)  # Added tags parameter
                     )
@@ -409,6 +466,7 @@ class WeatherGUI:
         except Exception as e:
             ttk.messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
+        # Focus on city entry and select all text for ease of data entry
         self.city_entry.focus()
         self.city_entry.select_range(0, END)
 
