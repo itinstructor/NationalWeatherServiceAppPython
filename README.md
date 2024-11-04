@@ -24,7 +24,7 @@ Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 
 ### Changes
 
-- 11/02/2024: Create Tkinter GUI version using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
+- 11/02/2024: Create Tkinter GUI version using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/). I used Claude.ai as a code helper for some of the code for this update.  
 - 09/24/2022: Refactor to MVC. nws_cli.py is the view, nws_class.py is the controller.
 - 09/05/2022: Refactor to divide up methods to be more specific to better handle and report errors. Minor fixes.
 - 07/17/2022: Instead of getting all the weather data at once from successive API calls, API call's are only made when needed, added more exception handling
@@ -32,6 +32,7 @@ Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 - 09/17/2021: Initial commit
 
 ### License
+
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
 
 Copyright (c) 2024 William A Loring
