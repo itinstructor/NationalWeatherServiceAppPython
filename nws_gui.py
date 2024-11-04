@@ -25,7 +25,7 @@ class WeatherGUI:
         self.root = root
         self.root.title("National Weather Service Weather App")
 
-        self.root.geometry("+50+50")
+        self.root.geometry("+75+75")
 
         # Remove the title bar
         self.root.overrideredirect(True)
@@ -48,7 +48,7 @@ class WeatherGUI:
         self.create_widgets()
         self.weather = WeatherClass()
 
-    # ----------------------- DRAG WINDOW --------------------------------- #
+# -------------------------- DRAG WINDOW --------------------------------- #
     def start_move(self, event):
         self.x = event.x
         self.y = event.y
@@ -89,48 +89,6 @@ class WeatherGUI:
             self.detailed_forecast_frame,
             text="7-Day Detailed Forecast"
         )
-
-    # ----------------------- LOCATION FRAME ----------------------------- #
-        self.location_frame = ttk.LabelFrame(
-            self.root, text="Location", padding="5")
-        self.location_frame.grid(row=1, column=0, columnspan=2, sticky=(W, E))
-
-        # City Entry
-        ttk.Label(self.location_frame, text="City:").grid(row=0, column=0)
-        self.city_entry = ttk.Entry(self.location_frame, width=30)
-        self.city_entry.grid(row=0, column=1)
-
-        # State Entry
-        ttk.Label(self.location_frame, text="State:").grid(row=0, column=2)
-        self.state_entry = ttk.Entry(self.location_frame, width=15)
-        self.state_entry.grid(row=0, column=3)
-
-        # Get Weather Button
-        self.btn_get_weather = ttk.Button(
-            self.location_frame, text="Get Weather",
-            command=self.fetch_weather, width=14)
-        self.btn_get_weather.grid(row=0, column=4)
-
-        # Exit Button
-        self.btn_exit = ttk.Button(
-            self.location_frame, text="Exit", command=self.quit, width=14
-        )
-        self.btn_exit.grid(row=0, column=5)
-
-    # ----------------------- COORDINATES FRAME -------------------------- #
-        self.coords_frame = ttk.LabelFrame(self.root, text="Coordinates")
-        self.coords_frame.grid(row=2, column=0, columnspan=2, sticky=(W, E))
-
-        self.address_var = ttk.StringVar()
-        self.coords_var = ttk.StringVar()
-        self.station_var = ttk.StringVar()
-
-        ttk.Label(self.coords_frame, textvariable=self.address_var,
-                  wraplength=900).grid(row=1, column=0, sticky=W)
-        ttk.Label(self.coords_frame, textvariable=self.coords_var).grid(
-            row=2, column=0, sticky=W)
-        ttk.Label(self.coords_frame, textvariable=self.station_var).grid(
-            row=3, column=0, sticky=W)
 
     # -------------------- CURRENT WEATHER FRAME ------------------------- #
         self.temp_var = ttk.StringVar()
@@ -215,6 +173,48 @@ class WeatherGUI:
         )
         hourly_scrollbar.grid(row=0, column=1, sticky=(N, S))
         self.hourly_tree.configure(yscrollcommand=hourly_scrollbar.set)
+
+    # ----------------------- COORDINATES FRAME -------------------------- #
+        self.coords_frame = ttk.LabelFrame(self.root, text="Coordinates")
+        self.coords_frame.grid(row=1, column=0, columnspan=2, sticky=(W, E))
+
+        self.address_var = ttk.StringVar()
+        self.coords_var = ttk.StringVar()
+        self.station_var = ttk.StringVar()
+
+        ttk.Label(self.coords_frame, textvariable=self.address_var,
+                  wraplength=900).grid(row=1, column=0, sticky=W)
+        ttk.Label(self.coords_frame, textvariable=self.coords_var).grid(
+            row=2, column=0, sticky=W)
+        ttk.Label(self.coords_frame, textvariable=self.station_var).grid(
+            row=3, column=0, sticky=W)
+
+    # ----------------------- LOCATION FRAME ----------------------------- #
+        self.location_frame = ttk.LabelFrame(
+            self.root, text="Location", padding="5")
+        self.location_frame.grid(row=2, column=0, columnspan=2, sticky=(W, E))
+
+        # City Entry
+        ttk.Label(self.location_frame, text="City:").grid(row=0, column=0)
+        self.city_entry = ttk.Entry(self.location_frame, width=30)
+        self.city_entry.grid(row=0, column=1)
+
+        # State Entry
+        ttk.Label(self.location_frame, text="State:").grid(row=0, column=2)
+        self.state_entry = ttk.Entry(self.location_frame, width=15)
+        self.state_entry.grid(row=0, column=3)
+
+        # Get Weather Button
+        self.btn_get_weather = ttk.Button(
+            self.location_frame, text="Get Weather",
+            command=self.fetch_weather, width=14)
+        self.btn_get_weather.grid(row=0, column=4)
+
+        # Exit Button
+        self.btn_exit = ttk.Button(
+            self.location_frame, text="Exit", command=self.quit, width=14
+        )
+        self.btn_exit.grid(row=0, column=5)
 
     # ----------------- 7-DAY FORECAST TREEVIEW -------------------------- #
         self.forecast_tree = ttk.Treeview(
