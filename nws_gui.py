@@ -24,12 +24,16 @@ class WeatherGUI:
         self.root = root
         self.root.title("National Weather Service Weather App")
         # Increased window size for hourly forecast
-        self.root.geometry("1145x935")
+        # self.root.geometry("1000x1150")
 
         # Set window and taskbar icon
         small_icon = ttk.PhotoImage(data=b64decode(weather_16))
         large_icon = ttk.PhotoImage(data=b64decode(weather_32))
         self.root.iconphoto(False, large_icon, small_icon)
+
+        # Set style for Treeview rowheight to separate rows
+        style = ttk.Style()
+        style.configure("Treeview", rowheight=35)  # Adjust rowheight as needed
 
         self.create_widgets()
         self.weather = WeatherClass()
@@ -37,7 +41,7 @@ class WeatherGUI:
 # ----------------------- CREATE WIDGETS --------------------------------- #
     def create_widgets(self):
         # Create Notebook for tabs
-        self.notebook = ttk.Notebook(self.root, padding="10")
+        self.notebook = ttk.Notebook(self.root, padding="8")
         self.notebook.grid(row=0, column=0, sticky=(W, E, N, S))
 
         # Create frames for each tab
@@ -55,7 +59,7 @@ class WeatherGUI:
         self.notebook.add(self.detailed_forecast_frame,
                           text="Detailed Forecast")
 
-        # ----------------------- LOCATION FRAME ------------------------- #
+    # ----------------------- LOCATION FRAME ----------------------------- #
         self.location_frame = ttk.LabelFrame(
             self.root, text="Location", padding="5")
         self.location_frame.grid(row=1, column=0, columnspan=2, sticky=(W, E))
@@ -76,7 +80,7 @@ class WeatherGUI:
             self.location_frame, text="Get Weather", command=self.fetch_weather)
         self.get_weather_btn.grid(row=0, column=4)
 
-        # ----------------------- COORDINATES FRAME ---------------------- #
+    # ----------------------- COORDINATES FRAME -------------------------- #
         self.coords_frame = ttk.LabelFrame(self.root, text="Coordinates")
         self.coords_frame.grid(row=2, column=0, columnspan=2, sticky=(W, E))
 
@@ -91,7 +95,7 @@ class WeatherGUI:
         ttk.Label(self.coords_frame, textvariable=self.station_var).grid(
             row=3, column=0, sticky=W)
 
-        # -------------------- CURRENT WEATHER FRAME --------------------- #
+    # -------------------- CURRENT WEATHER FRAME ------------------------- #
         self.temp_var = ttk.StringVar()
         self.desc_var = ttk.StringVar()
         self.humidity_var = ttk.StringVar()
@@ -122,8 +126,8 @@ class WeatherGUI:
             ttk.Label(self.current_weather_frame, textvariable=var).grid(
                 row=i, column=1, sticky=W)
 
-        # --------------------- ALERTS FRAME ----------------------------- #
-        self.alerts_text = ttk.Text(self.alerts_frame, width=100, height=18)
+    # --------------------- ALERTS FRAME --------------------------------- #
+        self.alerts_text = ttk.Text(self.alerts_frame, width=105, height=17)
         self.alerts_text.grid(row=0, column=0, sticky=(W, E, N, S))
 
         # Add vertical scrollbar to alerts frame
@@ -132,35 +136,54 @@ class WeatherGUI:
         alerts_scrollbar.grid(row=0, column=1, sticky=(N, S))
         self.alerts_text.configure(yscrollcommand=alerts_scrollbar.set)
 
-        # --------------------- HOURLY FORECAST FRAME -------------------- #
+    # ------------------ HOURLY FORECAST TREEVIEW ------------------------ #
+        TREE_HEIGHT = 11
         self.hourly_tree = ttk.Treeview(
             self.hourly_forecast_frame,
-            columns=("Time", "Temp", "Wind", "Forecast"), show="headings",
-            height=16
+            columns=(
+                "Time", "Temp", "Wind Spd", "Wind Dir", "Forecast"
+            ),
+            show="headings",
+            height=TREE_HEIGHT
         )
+
+        # Define alternating row tags
+        self.hourly_tree.tag_configure("oddrow", background="gray30")
+        self.hourly_tree.tag_configure("evenrow", background="gray15")
+
         self.hourly_tree.heading("Time", text="Time")
         self.hourly_tree.heading("Temp", text="Temp")
-        self.hourly_tree.heading("Wind", text="Wind")
+        self.hourly_tree.heading("Wind Spd", text="Wind Spd")
+        self.hourly_tree.heading("Wind Dir", text="Wind Dir")
         self.hourly_tree.heading("Forecast", text="Forecast")
 
         self.hourly_tree.column("Time", width=100)
         self.hourly_tree.column("Temp", width=110)
-        self.hourly_tree.column("Wind", width=175)
+        self.hourly_tree.column("Wind Spd", width=100)
+        self.hourly_tree.column("Wind Dir", width=100)
         self.hourly_tree.column("Forecast", width=400)
 
         self.hourly_tree.grid(row=0, column=0, sticky=(W, E, N, S))
 
         hourly_scrollbar = ttk.Scrollbar(
-            self.hourly_forecast_frame, orient="vertical", command=self.hourly_tree.yview)
+            self.hourly_forecast_frame,
+            orient="vertical",
+            command=self.hourly_tree.yview
+        )
         hourly_scrollbar.grid(row=0, column=1, sticky=(N, S))
         self.hourly_tree.configure(yscrollcommand=hourly_scrollbar.set)
 
-        # --------------------- 7-DAY FORECAST FRAME --------------------- #
+    # ----------------- 7-DAY FORECAST TREEVIEW -------------------------- #
         self.forecast_tree = ttk.Treeview(
             self.forecast_frame, columns=(
-            "Period", "Temperature", "Wind", "Forecast"), 
+                "Period", "Temperature", "Wind", "Forecast"),
             show="headings",
-            height=16)
+            height=TREE_HEIGHT
+        )
+
+        # Define alternating row tags
+        self.forecast_tree.tag_configure("oddrow", background="gray30")
+        self.forecast_tree.tag_configure("evenrow", background="gray15")
 
         self.forecast_tree.heading("Period", text="Period")
         self.forecast_tree.heading("Temperature", text="Temp")
@@ -173,17 +196,25 @@ class WeatherGUI:
         self.forecast_tree.column("Forecast", width=500)
 
         forecast_scrollbar = ttk.Scrollbar(
-            self.forecast_frame, orient="vertical", command=self.forecast_tree.yview)
+            self.forecast_frame, orient="vertical",
+            command=self.forecast_tree.yview
+        )
         forecast_scrollbar.grid(row=0, column=1, sticky=(N, S))
         self.forecast_tree.configure(yscrollcommand=forecast_scrollbar.set)
         self.forecast_tree.grid(row=0, column=0, sticky=(W, E, N, S))
 
-        # --------------------- DETAILED FORECAST FRAME ------------------ #
+    # ------------------ DETAILED FORECAST TREEVIEW ---------------------- #
         self.detailed_forecast_tree = ttk.Treeview(
-            self.detailed_forecast_frame, 
+            self.detailed_forecast_frame,
             columns=("Period", "Details"), show="headings",
-            height=16
-            )
+            height=TREE_HEIGHT
+        )
+
+        # Define alternating row tags
+        self.detailed_forecast_tree.tag_configure(
+            "oddrow", background="gray30")
+        self.detailed_forecast_tree.tag_configure(
+            "evenrow", background="gray15")
 
         self.detailed_forecast_tree.heading("Period", text="Period")
         self.detailed_forecast_tree.heading(
@@ -193,7 +224,8 @@ class WeatherGUI:
         self.detailed_forecast_tree.column("Details", width=900)
 
         detailed_forecast_scrollbar = ttk.Scrollbar(
-            self.detailed_forecast_frame, orient="vertical", command=self.detailed_forecast_tree.yview)
+            self.detailed_forecast_frame, orient="vertical",
+            command=self.detailed_forecast_tree.yview)
         detailed_forecast_scrollbar.grid(row=0, column=1, sticky=(N, S))
         self.detailed_forecast_tree.configure(
             yscrollcommand=detailed_forecast_scrollbar.set)
@@ -202,20 +234,20 @@ class WeatherGUI:
         # Set padding for all widgets
         PADX = 6
         PADY = 6
-        IPADX = 3
-        IPADY = 3
+        IPADX = 2
+        IPADY = 2
 
-        # for child in self.notebook.winfo_children():
-        #     child.grid_configure(padx=PADX, pady=PADY, ipadx=IPADX, ipady=IPADY)
         for child in self.root.winfo_children():
-            child.grid_configure(padx=20, pady=20, ipadx=IPADX, ipady=IPADY)
-        for child in self.coords_frame.winfo_children():
-            child.grid_configure(padx=PADX, pady=PADY,
-                                 ipadx=IPADX, ipady=IPADY)
-        for child in self.current_weather_frame.winfo_children():
-            child.grid_configure(padx=PADX, pady=PADY,
-                                 ipadx=IPADX, ipady=IPADY)
+            child.grid_configure(padx=10, pady=10, ipadx=IPADX, ipady=IPADY)
+
         for child in self.location_frame.winfo_children():
+            child.grid_configure(padx=PADX,
+                                 ipadx=IPADX, ipady=IPADY)
+        for child in self.coords_frame.winfo_children():
+            child.grid_configure(padx=PADX,
+                                 ipadx=IPADX, ipady=IPADY)
+
+        for child in self.current_weather_frame.winfo_children():
             child.grid_configure(padx=PADX, pady=PADY,
                                  ipadx=IPADX, ipady=IPADY)
         for child in self.hourly_forecast_frame.winfo_children():
@@ -262,7 +294,7 @@ class WeatherGUI:
             self.coords_var.set(f"Coordinates: {lat:.4f}, {lng:.4f}")
             self.address_var.set(f"Location: {address}")
 
-            # Get weather data
+        # ----------------- GET WEATHER DATA ----------------------------- #
             self.weather.get_gridpoints(lat, lng)
             self.weather.get_latest_weather_observation()
             self.weather.process_latest_weather_observation()
@@ -271,7 +303,7 @@ class WeatherGUI:
             self.weather.get_7_day_forecast()
             self.weather.get_hourly_forecast()
 
-            # Update current weather display
+        # ----------------- UPDATE CURRENT WEATHER ----------------------- #
             self.station_var.set(f"Station Name: {self.weather.station_name}")
             self.temp_var.set(f"{self.weather.temperature}°F")
             self.desc_var.set(self.weather.description)
@@ -281,7 +313,6 @@ class WeatherGUI:
             self.pressure_var.set(f"{self.weather.pressure} inHg")
             self.visibility_var.set(f"{self.weather.visibility} miles")
 
-            # Add new metrics (assuming these properties exist in WeatherClass)
             self.dewpoint_var.set(f"{self.weather.dewpoint}°F" if hasattr(
                 self.weather, 'dewpoint') else "N/A")
             self.windchill_var.set(f"{self.weather.windchill}°F" if hasattr(
@@ -291,9 +322,10 @@ class WeatherGUI:
             self.elevation_var.set(f"{self.weather.elevation} ft" if hasattr(
                 self.weather, 'elevation') else "N/A")
 
-            # Update alerts
+        # ----------------- CLEAR ALERTS TEXT ---------------------------- #
             self.alerts_text.delete(1.0, END)
-            # Display active alerts
+
+        # ----------------- DISPLAY ACTIVE ALERTS ------------------------ #
             self.alerts_text.insert(END, "Active Alerts:\n")
             active_alerts = self.weather.active_weather_alert_dict.get(
                 'features', [])
@@ -309,7 +341,7 @@ class WeatherGUI:
             else:
                 self.alerts_text.insert(END, "No active alerts\n\n")
 
-            # Display general weather alerts
+        # ----------------- DISPLAY GENERAL ALERTS ----------------------- #
             self.alerts_text.insert(END, "General Alerts:\n")
             general_alerts = self.weather.weather_alert_dict.get(
                 'features', [])
@@ -325,38 +357,54 @@ class WeatherGUI:
             else:
                 self.alerts_text.insert(END, "No general alerts\n")
 
-            # Update hourly forecast
+        # ----------------- UPDATE HOURLY FORECAST ----------------------- #
             self.hourly_tree.delete(*self.hourly_tree.get_children())
-            if hasattr(self.weather, 'forecast_hourly_list'):
-                # Show next 24 hours
-                for period in self.weather.forecast_hourly_list[:24]:
-                    self.hourly_tree.insert("", "end", values=(
-                        period['startTime'].split('T')[1][:5],  # Time
-                        f"{period['temperature']}°{period['temperatureUnit']}",
-                        f"{period['windSpeed']} {period['windDirection']}",
-                        period['shortForecast']
-                    ))
 
+            if hasattr(self.weather, 'forecast_hourly_list'):
+                for index, period in enumerate(self.weather.forecast_hourly_list[:24]):
+                    # Apply "oddrow" tag to even-indexed rows and "evenrow" to odd-indexed rows
+                    row_tag = "oddrow" if index % 2 == 0 else "evenrow"
+                    self.hourly_tree.insert(
+                        "",
+                        "end",
+                        values=(
+                            period['startTime'].split('T')[1][:5],  # Time
+                            f"{period['temperature']}°{
+                                period['temperatureUnit']}",
+                            f"{period['windSpeed']}",
+                            f"{period['windDirection']}",
+                            period['shortForecast']
+                        ),
+                        tags=(row_tag,)  # Added tags parameter
+                    )
+
+        # ----------------- UPDATE 7-DAY FORECAST ------------------------ #
             self.forecast_tree.delete(*self.forecast_tree.get_children())
             self.detailed_forecast_tree.delete(
                 *self.detailed_forecast_tree.get_children())
 
             if hasattr(self.weather, 'forecast_list'):
-                for period in self.weather.forecast_list:
+                for index, period in enumerate(self.weather.forecast_list):
+                    # Apply "oddrow" tag to even-indexed rows and "evenrow" to odd-indexed rows
+                    row_tag = "oddrow" if index % 2 == 0 else "evenrow"
                     # Update simple forecast
                     self.forecast_tree.insert("", "end", values=(
                         period['name'],
                         f"{period['temperature']}°{period['temperatureUnit']}",
                         f"{period['windSpeed']} {period['windDirection']}",
                         period['shortForecast']
-                    ))
+                    ),
+                        tags=(row_tag,)  # Added tags parameter
+                    )
 
                     # Update detailed forecast
                     self.detailed_forecast_tree.insert("", "end", values=(
                         period['name'],
                         period.get('detailedForecast',
                                    'No detailed forecast available')
-                    ))
+                    ),
+                        tags=(row_tag,)  # Added tags parameter
+                    )
 
         except Exception as e:
             ttk.messagebox.showerror("Error", f"An error occurred: {str(e)}")
