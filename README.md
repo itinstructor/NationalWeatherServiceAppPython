@@ -2,7 +2,7 @@
 
 CLI using the [rich](https://rich.readthedocs.io/en/stable/introduction.html) library.
 
-![NWS Screenshot](./img/latest_weather_information.png)
+![NWS Screenshot](./img/nws_cli.png)
 
 Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 
