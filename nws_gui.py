@@ -269,12 +269,22 @@ class WeatherGUI:
         self.detailed_forecast_tree.column("Period", width=150)
         self.detailed_forecast_tree.column("Details", width=900)
 
+        xdetailed_forecast_scrollbar = ttk.Scrollbar(
+            self.detailed_forecast_frame, orient="horizontal",
+            command=self.detailed_forecast_tree.xview
+        )
+        xdetailed_forecast_scrollbar.grid(row=1, column=0, sticky=(E, W))
+
         detailed_forecast_scrollbar = ttk.Scrollbar(
             self.detailed_forecast_frame, orient="vertical",
             command=self.detailed_forecast_tree.yview)
         detailed_forecast_scrollbar.grid(row=0, column=1, sticky=(N, S))
+
         self.detailed_forecast_tree.configure(
-            yscrollcommand=detailed_forecast_scrollbar.set)
+            yscrollcommand=detailed_forecast_scrollbar.set,
+            xscrollcommand=xdetailed_forecast_scrollbar.set
+        )
+
         self.detailed_forecast_tree.grid(row=0, column=0, sticky=(W, E, N, S))
 
         # Set padding for all widgets

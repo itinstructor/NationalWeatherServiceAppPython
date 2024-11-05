@@ -14,7 +14,7 @@ from datetime import datetime
 class WeatherClass:
     def __init__(self):
         # Replace with your email address
-        EMAIL_ADDRESS = "williamloring@hotmail.com"
+        EMAIL_ADDRESS = "youremailaddress@your.com"
         
         # User agent headers dictionary, like an API key, Required by NWS
         self.headers = {
