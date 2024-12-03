@@ -1,0 +1,95 @@
+https://api.weather.gov/points/41.862302,-103.6627088
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "s": "https://schema.org/",
+            "geo": "http://www.opengis.net/ont/geosparql#",     
+            "unit": "http://codes.wmo.int/common/unit/",        
+            "@vocab": "https://api.weather.gov/ontology#",      
+            "geometry": {
+                "@id": "s:GeoCoordinates",
+                "@type": "geo:wktLiteral"
+            },
+            "city": "s:addressLocality",
+            "state": "s:addressRegion",
+            "distance": {
+                "@id": "s:Distance",
+                "@type": "s:QuantitativeValue"
+            },
+            "bearing": {
+                "@type": "s:QuantitativeValue"
+            },
+            "value": {
+                "@id": "s:value"
+            },
+            "unitCode": {
+                "@id": "s:unitCode",
+                "@type": "@id"
+            },
+            "forecastOffice": {
+                "@type": "@id"
+            },
+            "forecastGridData": {
+                "@type": "@id"
+            },
+            "publicZone": {
+                "@type": "@id"
+            },
+            "county": {
+                "@type": "@id"
+            }
+        }
+    ],
+    "id": "https://api.weather.gov/points/41.8623,-103.6627",
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.6627,
+            41.862299999999998
+        ]
+    },
+    "properties": {
+        "@id": "https://api.weather.gov/points/41.8623,-103.6627",
+        "@type": "wx:Point",
+        "cwa": "CYS",
+        "forecastOffice": "https://api.weather.gov/offices/CYS",
+        "gridId": "CYS",
+        "gridX": 150,
+        "gridY": 43,
+        "forecast": "https://api.weather.gov/gridpoints/CYS/150,43/forecast",
+        "forecastHourly": "https://api.weather.gov/gridpoints/CYS/150,43/forecast/hourly",
+        "forecastGridData": "https://api.weather.gov/gridpoints/CYS/150,43",
+        "observationStations": "https://api.weather.gov/gridpoints/CYS/150,43/stations",
+        "relativeLocation": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -103.662035,
+                    41.868088
+                ]
+            },
+            "properties": {
+                "city": "Scottsbluff",
+                "state": "NE",
+                "distance": {
+                    "value": 645.94872765123,
+                    "unitCode": "unit:m"
+                },
+                "bearing": {
+                    "value": 184,
+                    "unitCode": "unit:degrees_true"
+                }
+            }
+        },
+        "forecastZone": "https://api.weather.gov/zones/forecast/NEZ019",
+        "county": "https://api.weather.gov/zones/county/NEC157",
+        "fireWeatherZone": "https://api.weather.gov/zones/fire/NEZ313",
+        "timeZone": "America/Denver",
+        "radarStation": "KCYS"
+    }
+}
