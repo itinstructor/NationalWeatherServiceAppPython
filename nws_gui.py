@@ -115,7 +115,9 @@ class WeatherGUI:
                     self.alerts_text.insert(
                         END, f"Severity: {properties.get('severity', 'N/A')}\n")
                     self.alerts_text.insert(
-                        END, f"Headline: {properties.get('headline', 'N/A')}\n\n")
+                        END, f"Headline: {properties.get('headline', 'N/A')}\n")
+                    self.alerts_text.insert(
+                        END, f"Description: {properties.get('description', 'N/A')}\n\n")
             else:
                 self.alerts_text.insert(END, "No active alerts\n\n")
 
@@ -131,7 +133,9 @@ class WeatherGUI:
                     self.alerts_text.insert(
                         END, f"Severity: {properties.get('severity', 'N/A')}\n")
                     self.alerts_text.insert(
-                        END, f"Headline: {properties.get('headline', 'N/A')}\n\n")
+                        END, f"Headline: {properties.get('headline', 'N/A')}\n")
+                    self.alerts_text.insert(
+                        END, f"Description: {properties.get('description', 'N/A')}\n\n")
             else:
                 self.alerts_text.insert(END, "No general alerts\n")
 
