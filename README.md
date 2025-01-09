@@ -10,15 +10,15 @@ Tkinter using [ttkbootstrap](https://ttkbootstrap.readthedocs.io/en/latest/).
 
 ## Overview
 
-- Python3 CLI program using requests, [National Weather Service API](https://www.weather.gov/documentation/services-web-api), and Nominatim from [geopy](https://pypi.org/project/geopy/).
+- Python3 CLI and GUI program using requests, [National Weather Service API](https://www.weather.gov/documentation/services-web-api), and Nominatim from [geopy](https://pypi.org/project/geopy/).
 - Includes current observations, forecast weather, and weather alerts.
 - Latitude and longitude are retrieved using Nominatim from geopy.
   - Windows: pip install geopy
-  - LInux: pip3 install geopy
+  - Linux: pip3 install geopy
 - JSON sample response files used to build the program are in the JSON folder.
-- [Rich](https://pypi.org/project/rich/) formatting is used to brighten up the application.
+- [Rich](https://pypi.org/project/rich/) formatting is used to brighten up the CLI application.
   - Rich is a Python library for rich text and beautiful formatting in the terminal.
-- A batch file is included for using [nuitka](https://pypi.org/project/Nuitka/) to build a Python program to a Windows exe (nuitka_console.bat.)
+- Batch files are included for using [nuitka](https://pypi.org/project/Nuitka/) to build a Python program to a Windows exe.
   - Windows: pip install nuitka
   - Linux: pip3 install nuitka
 
